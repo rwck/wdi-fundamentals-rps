@@ -1,7 +1,7 @@
 ////////////////////////////////////////////////
 /*   Provided Code - Please Don't Edit  */
 ////////////////////////////////////////////////
-// 'use strict'; - needed to get rid of this because it wasn't working in repl.it for some reason
+'use strict';
 
 function getInput() {
     console.log("Please choose either 'rock', 'paper', or 'scissors'.");
@@ -18,7 +18,6 @@ function randomPlay() {
         return "scissors";
     }
 }
-
 ////////////////////////////////////////////////
 /*           Write Your Code Below            */
 ////////////////////////////////////////////////
@@ -71,6 +70,7 @@ function playToFive() {
         var playerMove = getPlayerMove();
         var computerMove = getComputerMove();
         var winner = getWinner(playerMove, computerMove);
+
         console.log("You chose: " + playerMove + ". " + "The computer chose: " + computerMove + ".");
         if (winner == "computer") {
             computerWins += 1;
@@ -79,25 +79,30 @@ function playToFive() {
         else if (winner == "player") {
             playerWins += 1;
             console.log("You win this round!");
-        }        
+        }
+        
         else {
             console.log("That was a tie so you need to play that round again!")
-        }        
+        }
+        
         console.log("Computer has won " + computerWins + " times. Player has won: " + playerWins + " times.");
 }
     return [playerWins, computerWins];
 }
 
+// note to self: the function below works best (and possibly only, I think) in the browser console. Paste in the code and initiate with: playTo();
 function playTo(x) {
     console.log("Let's play Rock, Paper, Scissors");
     var x;
     var playerWins = 0;
     var computerWins = 0;
+
     while (computerWins < x && playerWins < x) {
         var playerMove = getPlayerMove();
         var computerMove = getComputerMove();
         var winner = getWinner(playerMove, computerMove);
-        console.log("You chose: " + playerMove + "." + "\nThe computer chose: " + computerMove + ".");
+
+        console.log("You chose: " + playerMove + "\nThe computer chose: " + computerMove + ".");
         if (winner == "computer") {
             computerWins += 1;
             console.log("Computer wins this round!");
@@ -106,11 +111,13 @@ function playTo(x) {
             playerWins += 1;
             console.log("You win this round!");
         }
+        
         else {
-            console.log("That was a tie - you need to play that round again!")
-        }  
-        console.log("\nComputer has won " + computerWins + " times. \nPlayer has won: " + playerWins + " times.");
-    }
+            console.log("That was a tie; you need to play that round again!")
+        }
+        
+        console.log("Victory goes to: " + winner + ". \nComputer has won " + computerWins + " times. \nPlayer has won: " + playerWins + " times.");
+}
     if (playerWins > computerWins) {
         console.log("You win the series this time! Congratulations.")
     }
@@ -118,8 +125,11 @@ function playTo(x) {
         console.log("I've won the series. You");
         console.log("are a loser.");
     }
-    return [playerWins, computerWins];
+    // return [playerWins, computerWins];
 }
+
+
+
 
 // note to self: the function below works best (and possibly only, I think) in the browser console. Paste in the code and initiate with: playTo();
 function playToinBrowser(x) {
@@ -135,10 +145,12 @@ function playToinBrowser(x) {
     alert("You need to win " + x + " games to win the series. Good luck!")
     var playerWins = 0;
     var computerWins = 0;
+
     while (computerWins < x && playerWins < x) {
         var playerMove = getPlayerMove();
         var computerMove = getComputerMove();
         var winner = getWinner(playerMove, computerMove);
+
         alert("You chose: " + playerMove + "\nThe computer chose: " + computerMove + ".");
         if (winner == "computer") {
             computerWins += 1;
@@ -148,11 +160,13 @@ function playToinBrowser(x) {
             playerWins += 1;
             alert("You win this round!");
         }
+        
         else {
             alert("That was a tie; you need to play that round again!")
         }
+        
         alert("Victory goes to: " + winner + ". \nComputer has won " + computerWins + " times. \nPlayer has won: " + playerWins + " times.");
-    }
+}
     if (playerWins > computerWins) {
         alert("You win the series this time! Congratulations.")
     }
@@ -162,3 +176,4 @@ function playToinBrowser(x) {
     }
     // return [playerWins, computerWins];
 }
+playTo();
